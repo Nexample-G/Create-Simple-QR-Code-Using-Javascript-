@@ -1,0 +1,76 @@
+<!DOCTYPE html><html>
+<head>
+	<title>NEXAMPLE : Create Simple QR Code Using Javascript !</title>
+	<style>
+		body{	margin:0px;
+			margin:0px auto;
+			width: 450px;
+			height:auto; 
+			display:block;
+		}ul{	margin:40px 0px;
+			padding:30px;
+			width: 390px;
+			height:auto; 
+			list-style:none;
+			background:#fff;
+			box-shadow:0px 0px 15px 0px rgba(21,160,246, 0.3); 
+		}li{	margin:10px -10px;
+			padding:10px;
+			width: 100%;
+			height:30px; 
+			background:#fff;
+			border:solid 1px rgba(21,160,246, 0.3); 
+		}input, select, button, .img{
+			margin:0;
+			padding:0;
+			width: 100%;
+			height:100%; 
+			background:#fff;
+			border:0; 
+			outline:0; 
+		}select{width: 235px  !important;
+		}button{width: 150px  !important;
+			float:right;
+			height: 50px;
+			margin:-10px;
+			background:rgba(21,160,246, 0.3);
+		}.img{	width: 100%;
+			height:auto;
+			padding:0px 10px;
+			margin:0px auto; 
+			display:block;
+		}img{	width: auto;
+			padding:0;
+			margin:0px auto; 
+			display:block;
+		}ul::before{
+			color:rgba(21,160,246);
+			content:"NEXAMPLE : Create Simple QR Code Using Javascript !";
+			font:normal 20PX/30PX Arial !important;
+		}
+	</style>
+</head><body>
+<ul >
+<form id="setQr">
+	<li><input type="text" id="input"></li>
+	<li>
+	<select id="px">
+		<option value="200">200 PX</option>
+		<option value="300">300 PX</option>
+		<option value="400">400 PX</option>
+	</select>
+	<button type="button" onclick="loadQR()">Create</button></li>
+	<li class='img'><img id="qr"></li>
+</form>
+</ul>
+<script>
+function loadQR() {
+	var qrd = document.getElementById("setQr");
+	var api = 'https://chart.googleapis.com/chart?chs=';
+	var txt = '&cht=qr&chl=' + qrd.elements[0].value;
+	var pxl = qrd.elements[1].value+'x'+qrd.elements[1].value;
+	var cho = api+pxl+txt+'%2F&choe=UTF-8';
+	document.getElementById("qr").src=cho;
+}
+</script>
+</body></html>
